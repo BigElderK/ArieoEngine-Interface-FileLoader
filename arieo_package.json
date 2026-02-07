@@ -1,5 +1,5 @@
 {
-    "name": "arieo.engine.interface.fileloader",
+    "name": "ArieoEngine-Interface-FileLoader",
     "description": "FileLoader interface for engine",
     "build_commands":
     [
