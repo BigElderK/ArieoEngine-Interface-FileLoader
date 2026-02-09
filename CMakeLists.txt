@@ -5,17 +5,22 @@ project(ArieoEngine)
 
 arieo_engine_project(
     arieo_file_loader_interface
-    ROOT_NAMESPACE Arieo::Interface::FileLoader
-    SCRIPT_PACKAGE_NAME arieo:file-loader
     PROJECT_TYPE interface
-    PUBLIC_INCLUDE_FOLDERS
-        ${CMAKE_CURRENT_SOURCE_DIR}/public/include
+    
     PACKAGES
         Arieo-Core
         Arieo-Interface-RHI
-    INTERFACES
+    PRIVATE_LIBS
         Arieo-Core::arieo_core
+    INTERFACES
         Arieo-Interface-RHI::arieo_rhi_interface
+
+    PUBLIC_INCLUDE_FOLDERS
+        ${CMAKE_CURRENT_SOURCE_DIR}/public/include
+        
+    ROOT_NAMESPACE Arieo::Interface::FileLoader
+    SCRIPT_PACKAGE_NAME arieo:file-loader
+
     AST_GENERATE_FOLDER
         ${CMAKE_CURRENT_SOURCE_DIR}/_generated/ast
     NATIVE_CODE_GENERATE_FOLDER
