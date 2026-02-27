@@ -15,11 +15,11 @@ namespace Arieo::Interface::FileLoader
 
         Interface::RHI::Format m_format;
     };
-    static_assert(Base::DLLBoundarySafeCheck<ImageBuffer>, "ImageBuffer must be DLL boundary safe");
+    static_assert(Base::ct::DLLBoundarySafeCheck<ImageBuffer>, "ImageBuffer must be DLL boundary safe");
 
     class IImageLoader
     {
     public:
-        virtual ImageBuffer loadDDS(void* buffer, size_t size) = 0;
+        virtual ImageBuffer loadDDS(const Base::Interop<Base::IBufferView>& buffer_view) = 0;
     };
 }
