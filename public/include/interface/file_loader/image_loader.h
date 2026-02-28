@@ -3,24 +3,22 @@
 #include "interface/rhi/rhi_enums.h"
 namespace Arieo::Interface::FileLoader
 {
-    struct ImageBuffer
+    class IImageBuffer
     {
-        void* m_buffer = nullptr;
-
-        size_t m_size = 0;
-        size_t m_width = 0;
-        size_t m_height = 0;
-        size_t m_depth = 0;
-        size_t m_mip_map_count = 0;
-
-        Interface::RHI::Format m_format;
+    public:
+        virtual void* getBuffer() = 0;
+        virtual size_t getSize() = 0;
+        virtual size_t getWidth() = 0;
+        virtual size_t getHeight() = 0;
+        virtual size_t getDepth() = 0;
+        virtual size_t getMipMapCount() = 0;
+        virtual Interface::RHI::Format getFormat() = 0;
     };
-    static_assert(Base::ct::DLLBoundarySafeCheck<ImageBuffer>, "ImageBuffer must be DLL boundary safe");
 
     class IImageLoader
     {
     public:
-        virtual ImageBuffer loadDDS(void* buffer, size_t size) = 0;
+        virtual Base::Interop::SharedRef<IImageBuffer> loadDDS(Base::Interop::SharedRef<Base::IBuffer> buffer) = 0;
     };
 }
 
