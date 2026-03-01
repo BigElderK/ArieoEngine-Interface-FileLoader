@@ -18,7 +18,7 @@ namespace Arieo::Interface::FileLoader
     class IImageLoader
     {
     public:
-        virtual Base::Interop::SharedRef<IImageBuffer> loadDDS(Base::Interop::SharedRef<Base::IBuffer> buffer) = 0;
+        virtual Base::Interop::SharedRef<IImageBuffer> loadDDS(const Base::Interop::SharedRef<Base::IBuffer>& buffer) = 0;
     };
 }
 

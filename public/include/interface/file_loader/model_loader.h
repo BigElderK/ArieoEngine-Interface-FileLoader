@@ -23,7 +23,7 @@ namespace Arieo::Interface::FileLoader
     class IModelLoader
     {
     public:
-        virtual Base::Interop::SharedRef<IModelBuffer> loadObj(Base::Interop::SharedRef<Base::IBuffer> buffer) = 0;
+        virtual Base::Interop::SharedRef<IModelBuffer> loadObj(const Base::Interop::SharedRef<Base::IBuffer>& buffer) = 0;
     };
 }
 
